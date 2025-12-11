@@ -1,0 +1,21 @@
+{
+  "name": "test_week2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barakc121/test_week2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Barakc121/test_week2/issues"
+  },
+  "homepage": "https://github.com/Barakc121/test_week2#readme"
+}
