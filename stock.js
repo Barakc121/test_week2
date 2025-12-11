@@ -29,34 +29,43 @@ export function filterStocksByPrice(givenPrice, above) {
 // console.log(filterStocksByPrice(50, true));
 
 export function OperateOnStock(operation, identifier) {
+  if (operation !== "sell" && operation !== "buy")
+    return "its data not good your need to write or buy or sell";
   if (operation === "buy") {
     for (let i = 0; i < stockMarket.stocks.length; i++) {
       if (
         stockMarket.stocks[i].name === identifier ||
-        stockMarket.stocks[i].id=== identifier
+        stockMarket.stocks[i].id === identifier
       ) {
         let pbuy = input("how pcs your wont to buy");
-        if (stockMarket.stocks[i].availableStocks <= pbuy) {
+        if (stockMarket.stocks[i].availableStocks >= pbuy) {
           stockMarket.stocks[i].availableStocks -= pbuy;
           stockMarket.stocks[i].currentPrice *= 1.05;
-          stockMarket.stocks[i].currentPrice *= 1.01;54
+          stockMarket.stocks[i].currentPrice *= 1.01;
+          console.log(stockMarket.stocks[i].currentPrice);
+          return stockMarket.stocks[i].currentPrice;
         }
       }
     }
   }
 
-  if (operation === "sell")
+  else
     for (let i = 0; i < stockMarket.stocks.length; i++) {
       if (
         stockMarket.stocks[i].name === identifier ||
-        stockMarket.stocks[i].id  === identifier
+        stockMarket.stocks[i].id === identifier
       ) {
         let psell = input("how pcs your wont to sell");
-         if (stockMarket.stocks[i].availableStocks <= pbuy) {
-          stockMarket.stocks[i].availableStocks -= pbuy;
-          stockMarket.stocks[i].currentPrice *= 1.05;
-          stockMarket.stocks[i].currentPrice *= 1.01;54
+        if (stockMarket.stocks[i].availableStocks >= psell) {
+          stockMarket.stocks[i].availableStocks += psell;
+          stockMarket.stocks[i].currentPrice *= 0.05;
+          stockMarket.stocks[i].currentPrice *= 0.01;
+          console.log(stockMarket.stocks[i].currentPrice);
+          return stockMarket.stocks[i].currentPrice;
+        }
       }
     }
+    return 'not found'
 }
-console.log(OperateOnStock("buy", "x7l2df9"));
+// console.log(OperateOnStock("buy", "v3b9qte"));
+
