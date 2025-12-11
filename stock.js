@@ -42,14 +42,12 @@ export function OperateOnStock(operation, identifier) {
           stockMarket.stocks[i].availableStocks -= pbuy;
           stockMarket.stocks[i].currentPrice *= 1.05;
           stockMarket.stocks[i].currentPrice *= 1.01;
-          console.log(stockMarket.stocks[i].currentPrice);
+          console.log(stockMarket.stocks[i].name,'buying');
           return stockMarket.stocks[i].currentPrice;
         }
       }
     }
-  }
-
-  else
+  } else
     for (let i = 0; i < stockMarket.stocks.length; i++) {
       if (
         stockMarket.stocks[i].name === identifier ||
@@ -60,12 +58,13 @@ export function OperateOnStock(operation, identifier) {
           stockMarket.stocks[i].availableStocks += psell;
           stockMarket.stocks[i].currentPrice *= 0.05;
           stockMarket.stocks[i].currentPrice *= 0.01;
-          console.log(stockMarket.stocks[i].currentPrice);
+          console.log(stockMarket.stocks[i].name, 'selled');
           return stockMarket.stocks[i].currentPrice;
         }
       }
     }
-    return 'not found'
+  return "not found";
 }
 // console.log(OperateOnStock("buy", "v3b9qte"));
+
 
